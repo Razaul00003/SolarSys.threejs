@@ -615,6 +615,14 @@ const sunMat = new _three.MeshBasicMaterial({
 });
 const sun = new _three.Mesh(sunGeo, sunMat);
 scene.add(sun);
+//mercury
+const mercuryGeo = new _three.SphereGeometry(3.2, 30, 30);
+const mercuryMat = new _three.MeshBasicMaterial({
+    map: textureLoader.load((0, _mercuryJpgDefault.default))
+});
+const mercury = new _three.Mesh(mercuryGeo, mercuryMat);
+sun.add(mercury);
+mercury.position.x = 28;
 // Sets a 12 by 12 gird helper
 const gridHelper = new _three.GridHelper(12, 12);
 scene.add(gridHelper);
@@ -623,6 +631,8 @@ const axesHelper = new _three.AxesHelper(4);
 scene.add(axesHelper);
 function animate() {
     renderer.render(scene, camera);
+    sun.rotateY(0.004);
+    mercury.rotateY(0.004);
 }
 renderer.setAnimationLoop(animate);
 window.addEventListener("resize", function() {
