@@ -557,15 +557,40 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"goJYj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
 var _orbitControlsJs = require("three/examples/jsm/controls/OrbitControls.js");
+var _starsJpg = require("../img/stars.jpg");
+var _starsJpgDefault = parcelHelpers.interopDefault(_starsJpg);
+var _sunJpg = require("../img/sun.jpg");
+var _sunJpgDefault = parcelHelpers.interopDefault(_sunJpg);
+var _mercuryJpg = require("../img/mercury.jpg");
+var _mercuryJpgDefault = parcelHelpers.interopDefault(_mercuryJpg);
+var _venusJpg = require("../img/venus.jpg");
+var _venusJpgDefault = parcelHelpers.interopDefault(_venusJpg);
+var _earthJpg = require("../img/earth.jpg");
+var _earthJpgDefault = parcelHelpers.interopDefault(_earthJpg);
+var _marsJpg = require("../img/mars.jpg");
+var _marsJpgDefault = parcelHelpers.interopDefault(_marsJpg);
+var _jupiterJpg = require("../img/jupiter.jpg");
+var _jupiterJpgDefault = parcelHelpers.interopDefault(_jupiterJpg);
+var _saturnJpg = require("../img/saturn.jpg");
+var _saturnJpgDefault = parcelHelpers.interopDefault(_saturnJpg);
+var _uranusJpg = require("../img/uranus.jpg");
+var _uranusJpgDefault = parcelHelpers.interopDefault(_uranusJpg);
+var _uranusRingPng = require("../img/uranus ring.png");
+var _uranusRingPngDefault = parcelHelpers.interopDefault(_uranusRingPng);
+var _neptuneJpg = require("../img/neptune.jpg");
+var _neptuneJpgDefault = parcelHelpers.interopDefault(_neptuneJpg);
+var _plutoJpg = require("../img/pluto.jpg");
+var _plutoJpgDefault = parcelHelpers.interopDefault(_plutoJpg);
 const renderer = new _three.WebGLRenderer({
     antialias: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 // Sets the color of the background
-renderer.setClearColor(0xFEFEFE);
+renderer.setClearColor(0xfefefe);
 const scene = new _three.Scene();
 const camera = new _three.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 // Sets orbit control to move the camera around
@@ -573,6 +598,15 @@ const orbit = new (0, _orbitControlsJs.OrbitControls)(camera, renderer.domElemen
 // Camera positioning
 camera.position.set(6, 8, 14);
 orbit.update();
+const cubeTextureLoader = new _three.CubeTextureLoader();
+scene.background = cubeTextureLoader.load([
+    (0, _starsJpgDefault.default),
+    (0, _starsJpgDefault.default),
+    (0, _starsJpgDefault.default),
+    (0, _starsJpgDefault.default),
+    (0, _starsJpgDefault.default),
+    (0, _starsJpgDefault.default)
+]);
 // Sets a 12 by 12 gird helper
 const gridHelper = new _three.GridHelper(12, 12);
 scene.add(gridHelper);
@@ -589,7 +623,7 @@ window.addEventListener("resize", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","../img/sun.jpg":"9E51j","../img/mercury.jpg":"4H59m","../img/venus.jpg":"fo0qy","../img/earth.jpg":"lokrp","../img/mars.jpg":"dezHe","../img/jupiter.jpg":"jdqWc","../img/saturn.jpg":"iRqfw","../img/uranus.jpg":"4b80s","../img/neptune.jpg":"5PfrH","../img/pluto.jpg":"7LUgy","@parcel/transformer-js/src/esmodule-helpers.js":"buOEG","../img/stars.jpg":"azANf","../img/uranus ring.png":"2PYlp"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -31122,6 +31156,76 @@ class OrbitControls extends (0, _three.EventDispatcher) {
     }
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"buOEG"}]},["0151v","goJYj"], "goJYj", "parcelRequire7930")
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"buOEG"}],"9E51j":[function(require,module,exports) {
+module.exports = require("ea0dec546180c02").getBundleURL("e6MYJ") + "sun.a08d7ba3.jpg" + "?" + Date.now();
+
+},{"ea0dec546180c02":"3LNyk"}],"3LNyk":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"4H59m":[function(require,module,exports) {
+module.exports = require("8b1915f10f7fa968").getBundleURL("e6MYJ") + "mercury.e64be2d9.jpg" + "?" + Date.now();
+
+},{"8b1915f10f7fa968":"3LNyk"}],"fo0qy":[function(require,module,exports) {
+module.exports = require("e015f4d5202ba304").getBundleURL("e6MYJ") + "venus.c3875816.jpg" + "?" + Date.now();
+
+},{"e015f4d5202ba304":"3LNyk"}],"lokrp":[function(require,module,exports) {
+module.exports = require("d45811c3579722dc").getBundleURL("e6MYJ") + "earth.0431f8a5.jpg" + "?" + Date.now();
+
+},{"d45811c3579722dc":"3LNyk"}],"dezHe":[function(require,module,exports) {
+module.exports = require("b73fc555f4ad097b").getBundleURL("e6MYJ") + "mars.39828838.jpg" + "?" + Date.now();
+
+},{"b73fc555f4ad097b":"3LNyk"}],"jdqWc":[function(require,module,exports) {
+module.exports = require("a813062864daecd7").getBundleURL("e6MYJ") + "jupiter.970a44f9.jpg" + "?" + Date.now();
+
+},{"a813062864daecd7":"3LNyk"}],"iRqfw":[function(require,module,exports) {
+module.exports = require("ba188ddc7888454").getBundleURL("e6MYJ") + "saturn.f0999ace.jpg" + "?" + Date.now();
+
+},{"ba188ddc7888454":"3LNyk"}],"4b80s":[function(require,module,exports) {
+module.exports = require("a016579f421e8269").getBundleURL("e6MYJ") + "uranus.03f8200b.jpg" + "?" + Date.now();
+
+},{"a016579f421e8269":"3LNyk"}],"5PfrH":[function(require,module,exports) {
+module.exports = require("60316560fbb5b38b").getBundleURL("e6MYJ") + "neptune.69b29d20.jpg" + "?" + Date.now();
+
+},{"60316560fbb5b38b":"3LNyk"}],"7LUgy":[function(require,module,exports) {
+module.exports = require("2feb7728cc66322f").getBundleURL("e6MYJ") + "pluto.cc2d7afe.jpg" + "?" + Date.now();
+
+},{"2feb7728cc66322f":"3LNyk"}],"azANf":[function(require,module,exports) {
+module.exports = require("8f47eb9d9be93825").getBundleURL("e6MYJ") + "stars.a1d7fe60.jpg" + "?" + Date.now();
+
+},{"8f47eb9d9be93825":"3LNyk"}],"2PYlp":[function(require,module,exports) {
+module.exports = require("9942185366a86e83").getBundleURL("e6MYJ") + "uranus ring.bb04d0b4.png" + "?" + Date.now();
+
+},{"9942185366a86e83":"3LNyk"}]},["0151v","goJYj"], "goJYj", "parcelRequire7930")
 
 //# sourceMappingURL=index.64a4978e.js.map
