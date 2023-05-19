@@ -46,6 +46,16 @@ scene.background = cubeTextureLoader.load([
   starsTexture,
 ]);
 
+const textureLoader = new THREE.TextureLoader();
+
+//sun
+const sunGeo = new THREE.SphereGeometry(16, 30, 30);
+const sunMat = new THREE.MeshBasicMaterial({
+  map: textureLoader.load(sunTexture),
+});
+const sun = new THREE.Mesh(sunGeo, sunMat);
+scene.add(sun);
+
 // Sets a 12 by 12 gird helper
 const gridHelper = new THREE.GridHelper(12, 12);
 scene.add(gridHelper);
