@@ -576,6 +576,8 @@ var _jupiterJpg = require("../img/jupiter.jpg");
 var _jupiterJpgDefault = parcelHelpers.interopDefault(_jupiterJpg);
 var _saturnJpg = require("../img/saturn.jpg");
 var _saturnJpgDefault = parcelHelpers.interopDefault(_saturnJpg);
+var _saturnRingPng = require("../img/saturn ring.png");
+var _saturnRingPngDefault = parcelHelpers.interopDefault(_saturnRingPng);
 var _uranusJpg = require("../img/uranus.jpg");
 var _uranusJpgDefault = parcelHelpers.interopDefault(_uranusJpg);
 var _uranusRingPng = require("../img/uranus ring.png");
@@ -635,6 +637,15 @@ const saturnObj = new _three.Object3D();
 saturnObj.add(saturn);
 scene.add(saturnObj);
 saturn.position.x = 138;
+const saturnRingGeo = new _three.RingGeometry(10, 20, 32);
+const staturnRingMat = new _three.MeshBasicMaterial({
+    map: textureLoader.load((0, _saturnRingPngDefault.default)),
+    side: _three.DoubleSide
+});
+const saturnRing = new _three.Mesh(saturnRingGeo, staturnRingMat);
+saturnObj.add(saturnRing);
+saturnRing.position.x = 138;
+saturnRing.rotation.x = -0.5 * Math.PI;
 // Sets a 12 by 12 gird helper
 const gridHelper = new _three.GridHelper(12, 12);
 scene.add(gridHelper);
@@ -647,8 +658,10 @@ scene.add(pointLight);
 function animate() {
     renderer.render(scene, camera);
     sun.rotateY(0.004);
-    mercuryObj.rotateY(0.004);
-    saturnObj.rotateY(0.004);
+    mercury.rotateY(0.004);
+    mercuryObj.rotateY(0.04);
+    saturn.rotateY(0.038);
+    saturnObj.rotateY(0.0009);
 }
 renderer.setAnimationLoop(animate);
 window.addEventListener("resize", function() {
@@ -657,7 +670,7 @@ window.addEventListener("resize", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","../img/sun.jpg":"9E51j","../img/mercury.jpg":"4H59m","../img/venus.jpg":"fo0qy","../img/earth.jpg":"lokrp","../img/mars.jpg":"dezHe","../img/jupiter.jpg":"jdqWc","../img/saturn.jpg":"iRqfw","../img/uranus.jpg":"4b80s","../img/neptune.jpg":"5PfrH","../img/pluto.jpg":"7LUgy","@parcel/transformer-js/src/esmodule-helpers.js":"buOEG","../img/stars.jpg":"azANf","../img/uranus ring.png":"2PYlp"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","../img/sun.jpg":"9E51j","../img/mercury.jpg":"4H59m","../img/venus.jpg":"fo0qy","../img/earth.jpg":"lokrp","../img/mars.jpg":"dezHe","../img/jupiter.jpg":"jdqWc","../img/saturn.jpg":"iRqfw","../img/uranus.jpg":"4b80s","../img/neptune.jpg":"5PfrH","../img/pluto.jpg":"7LUgy","@parcel/transformer-js/src/esmodule-helpers.js":"buOEG","../img/stars.jpg":"azANf","../img/uranus ring.png":"2PYlp","../img/saturn ring.png":"6dbzu"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -31260,6 +31273,9 @@ module.exports = require("8f47eb9d9be93825").getBundleURL("e6MYJ") + "stars.a1d7
 },{"8f47eb9d9be93825":"3LNyk"}],"2PYlp":[function(require,module,exports) {
 module.exports = require("9942185366a86e83").getBundleURL("e6MYJ") + "uranus ring.bb04d0b4.png" + "?" + Date.now();
 
-},{"9942185366a86e83":"3LNyk"}]},["0151v","goJYj"], "goJYj", "parcelRequire7930")
+},{"9942185366a86e83":"3LNyk"}],"6dbzu":[function(require,module,exports) {
+module.exports = require("8277bca2f8389dca").getBundleURL("e6MYJ") + "saturn ring.cc9fe67e.png" + "?" + Date.now();
+
+},{"8277bca2f8389dca":"3LNyk"}]},["0151v","goJYj"], "goJYj", "parcelRequire7930")
 
 //# sourceMappingURL=index.64a4978e.js.map

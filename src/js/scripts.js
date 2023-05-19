@@ -9,6 +9,7 @@ import earthTexture from "../img/earth.jpg";
 import marsTexture from "../img/mars.jpg";
 import jupiterTexture from "../img/jupiter.jpg";
 import saturnTexture from "../img/saturn.jpg";
+import saturnRingTexture from "../img/saturn ring.png";
 import uranusTexture from "../img/uranus.jpg";
 import uranusRingTexture from "../img/uranus ring.png";
 import neptuneTexture from "../img/neptune.jpg";
@@ -78,6 +79,16 @@ saturnObj.add(saturn);
 scene.add(saturnObj);
 saturn.position.x = 138;
 
+const saturnRingGeo = new THREE.RingGeometry(10, 20, 32);
+const staturnRingMat = new THREE.MeshBasicMaterial({
+  map: textureLoader.load(saturnRingTexture),
+  side: THREE.DoubleSide,
+});
+const saturnRing = new THREE.Mesh(saturnRingGeo, staturnRingMat);
+saturnObj.add(saturnRing);
+saturnRing.position.x = 138;
+saturnRing.rotation.x = -0.5 * Math.PI;
+
 // Sets a 12 by 12 gird helper
 const gridHelper = new THREE.GridHelper(12, 12);
 scene.add(gridHelper);
@@ -93,8 +104,10 @@ scene.add(pointLight);
 function animate() {
   renderer.render(scene, camera);
   sun.rotateY(0.004);
-  mercuryObj.rotateY(0.004);
-  saturnObj.rotateY(0.004);
+  mercury.rotateY(0.004);
+  mercuryObj.rotateY(0.04);
+  saturn.rotateY(0.038);
+  saturnObj.rotateY(0.0009);
 }
 
 renderer.setAnimationLoop(animate);
