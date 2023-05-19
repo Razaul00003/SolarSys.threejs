@@ -617,22 +617,38 @@ const sun = new _three.Mesh(sunGeo, sunMat);
 scene.add(sun);
 //mercury
 const mercuryGeo = new _three.SphereGeometry(3.2, 30, 30);
-const mercuryMat = new _three.MeshBasicMaterial({
+const mercuryMat = new _three.MeshStandardMaterial({
     map: textureLoader.load((0, _mercuryJpgDefault.default))
 });
 const mercury = new _three.Mesh(mercuryGeo, mercuryMat);
-sun.add(mercury);
+const mercuryObj = new _three.Object3D();
+mercuryObj.add(mercury);
+scene.add(mercuryObj);
 mercury.position.x = 28;
+//saturn
+const saturnGeo = new _three.SphereGeometry(10, 30, 30);
+const saturnMat = new _three.MeshStandardMaterial({
+    map: textureLoader.load((0, _saturnJpgDefault.default))
+});
+const saturn = new _three.Mesh(saturnGeo, saturnMat);
+const saturnObj = new _three.Object3D();
+saturnObj.add(saturn);
+scene.add(saturnObj);
+saturn.position.x = 138;
 // Sets a 12 by 12 gird helper
 const gridHelper = new _three.GridHelper(12, 12);
 scene.add(gridHelper);
 // Sets the x, y, and z axes with each having a length of 4
 const axesHelper = new _three.AxesHelper(4);
 scene.add(axesHelper);
+//light
+const pointLight = new _three.PointLight(0xffffff, 2, 300);
+scene.add(pointLight);
 function animate() {
     renderer.render(scene, camera);
     sun.rotateY(0.004);
-    mercury.rotateY(0.004);
+    mercuryObj.rotateY(0.004);
+    saturnObj.rotateY(0.004);
 }
 renderer.setAnimationLoop(animate);
 window.addEventListener("resize", function() {
