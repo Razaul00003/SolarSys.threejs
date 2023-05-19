@@ -33,7 +33,7 @@ const camera = new THREE.PerspectiveCamera(
 const orbit = new OrbitControls(camera, renderer.domElement);
 
 // Camera positioning
-camera.position.set(6, 8, 14);
+camera.position.set(-90, 140, 140);
 orbit.update();
 
 const cubeTextureLoader = new THREE.CubeTextureLoader();

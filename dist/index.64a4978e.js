@@ -596,7 +596,7 @@ const camera = new _three.PerspectiveCamera(45, window.innerWidth / window.inner
 // Sets orbit control to move the camera around
 const orbit = new (0, _orbitControlsJs.OrbitControls)(camera, renderer.domElement);
 // Camera positioning
-camera.position.set(6, 8, 14);
+camera.position.set(-90, 140, 140);
 orbit.update();
 const cubeTextureLoader = new _three.CubeTextureLoader();
 scene.background = cubeTextureLoader.load([
